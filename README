@@ -1,0 +1,90 @@
+# Monocular Depth Perception
+
+A Python computer vision project that uses a pretrained MiDaS depth-estimation model to estimate 3D depth from a single 2D image.
+
+The program processes an image, generates a depth map, and uses the depth information to create a 3D point cloud. It can also generate an approximate 3D mesh and rotating visualization.
+
+## Features
+
+* Monocular depth estimation using MiDaS/DPT
+* GPU acceleration with PyTorch/CUDA when available
+* Image contrast enhancement
+* Sketch processing mode
+* Depth-map smoothing
+* Point-cloud generation and noise filtering
+* Optional 3D mesh generation
+* 3D visualization
+* PLY point-cloud export
+* OBJ mesh export
+* Rotating GIF visualization
+
+## How It Works
+
+The basic pipeline is:
+
+2D Image
+→ Image Processing
+→ MiDaS Depth Estimation
+→ Depth Map
+→ 3D Point Cloud
+→ Optional Mesh / Visualization / Export
+
+The system uses a single image, so the resulting depth is relative rather than a precise measurement in meters or feet.
+
+## Requirements
+
+* Python 3
+* PyTorch
+* OpenCV
+* NumPy
+* Matplotlib
+* Pillow
+* SciPy
+* scikit-learn
+* ImageIO
+
+Install dependencies with:
+
+pip install -r requirements.txt
+
+## Usage
+
+Update the image path in `monocular_depth.py`:
+
+imgPath = "facial_sketch.jpg"
+
+Then run:
+
+python monocular_depth.py
+
+The example configuration uses the DPT Large model and enables contrast enhancement, sketch processing, depth smoothing, mesh generation, and GIF creation.
+
+## Output
+
+The program can generate:
+
+* `point_cloud.ply` - 3D point cloud
+* `mesh.obj` - 3D mesh
+* `mesh.mtl` - mesh material information
+* `animation.gif` - rotating 3D visualization
+* `results_visualization.png` - original image, depth map, and point cloud
+
+## Limitations
+
+This project estimates relative depth from a single image and does not produce guaranteed real-world measurements. The 3D reconstruction and mesh are approximate.
+
+## Future Improvements
+
+Possible improvements include:
+
+* Better camera calibration
+* Improved 3D reconstruction
+* More advanced mesh generation
+* Real-time webcam processing
+* Interactive 3D visualization
+* Multi-image reconstruction
+* Object detection and segmentation
+
+## Project Purpose
+
+This project was developed to explore computer vision, machine learning, image processing, and 3D reconstruction using Python.
